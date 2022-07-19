@@ -30,6 +30,26 @@ public class UserDaoService {
 		
 		
 	}
+	
+	
+	public User findOne(int id ) {
+		for(User user : users) {
+			if(user.getId() == id) {
+				return user;
+			}
+		}
+		return null;
+	}
+	
+	
+	public User save(User user) {
+		if(user.getId() == null) {
+			user.setId(++usersCount);
+			
+		}
+		users.add(user);
+		return user;
+	}
 }
 
 
